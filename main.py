@@ -17,6 +17,15 @@ def index():
     for news in news_list:
         if news.find('h2'):
             headlines.append(news.find('h2').text)
-    return jsonify({'data':headlines})
+    imgs = soup.find_all('div', class_='pic')
+    images = []
+    for img in imgs:
+        if img.find('img'):
+            images.append(img.find('img')['src'])
+    data = {
+        'headlines': headlines,
+        'images': images
+    }
+    return jsonify({'data': data})
 
 app.run(debug=True)
