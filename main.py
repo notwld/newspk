@@ -22,10 +22,9 @@ def index():
     for img in imgs:
         if img.find('img'):
             images.append(img.find('img')['src'])
-    data = {
-        'headlines': headlines,
-        'images': images
-    }
-    return jsonify({'data': data})
 
-app.run(debug=True)
+    return jsonify({'headlines': headlines, 'images': images})
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
