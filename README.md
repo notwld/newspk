@@ -26,6 +26,3 @@ then ```pip install -r requirements.txt```
 ```http
   GET http://127.0.0.1:5000/
 ```
-
-# Deployed on Heroku
-Link: https://newsurdu.herokuapp.com/
